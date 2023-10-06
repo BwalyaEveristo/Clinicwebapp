@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+  integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <title><%= title %></title>
+</head>
+<body>
+
+  <div class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center ">
+    <a class="navbar-brand" href=" ">CLINIC DATABASE</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/add-patient">Add User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Databases"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+  <h1 style="text-align: center; margin-top: 2%; text-decoration: underline;">Patients</h1>
+  <table class="table" style="margin-top: 2%;">
+    <thead>
+      <tr class="table-dark text-center">
+        <th>PatientID</th>
+        <th>Name</th>
+        <th>Initials</th>
+        <th>Sex</th>
+        <th>DOB</th>
+        <th>Address</th>
+        <th>PostCode</th>
+        <th>Admission</th>
+        <th>WardID</th>
+        <th>NextOfKin</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% data.forEach((row) => { %>
+        <tr>
+          <td><%= row.patient_id %></td>
+          <td><%= row.name %></td>
+          <td><%= row.initials %></td>
+          <td><%= row.sex %></td>
+          <td><%= row.date_of_birth %></td>
+          <td><%= row.address %></td>
+          <td><%= row.post_code %></td>
+          <td><%= row.admission %></td>
+          <td><%= row.ward_id %></td>
+          <td><%= row.next_of_kin %></td>
+          <td>
+            <!-- Edit button (you can add your edit logic here) -->
+            <a href="#" class="text-bg-success">
+              <i class="fas fa-edit fa-lg mx-1"></i>
+            </a>
+  
+            <!-- Delete button with data attribute containing patient ID -->
+            <a href="#" class="text-bg-danger deletePatientButton" data-patient-id="<%= row.patient_id %>">
+              <i class="fas fa-trash fa-lg mx-1"></i>
+            </a>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <script>
+    // Add a click event handler to the "Delete" buttons for patient data
+    document.querySelectorAll('.deletePatientButton').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent the default link behavior
+  
+        const patientId = button.getAttribute('data-patient-id');
+  
+        // Confirm the deletion with the user (optional)
+        const confirmed = confirm('Are you sure you want to delete this patient?');
+        if (!confirmed) {
+          return; // If not confirmed, do nothing
+        }
+  
+        // Send an AJAX request to delete the patient (you'll need to define this route in your Express app)
+        fetch(`/delete-patient/${patientId}`, {
+          method: 'DELETE',
+        })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.error) {
+            alert(data.error);
+          } else {
+            alert(data.message);
+            // Optionally, you can remove the patient row from the table
+            // button.closest('tr').remove();
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert('Error deleting patient');
+        });
+      });
+    });
+  </script>
+  
+  
+
+
+  <p class="text-center text-muted">&copy; Copyright 2020 The CyberThread People</p>
+</body>
+</html>

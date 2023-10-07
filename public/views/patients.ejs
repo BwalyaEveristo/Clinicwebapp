@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+</head>
+<body>
+  <h1>Data from MySQL Database</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>PatientID</th>
+        <th>Name</th>
+        <th>Initials</th>
+        <th>Sex</th>
+        <th>DOB</th>
+        <th>Address</th>
+        <th>PostCode</th>
+        <th>Admission</th>
+        <th>WardID</th>
+        <th>NextOfKin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% data.forEach((row) => { %>
+        <tr>
+          <td><%= row.PatientID %></td>
+          <td><%= row.Name %></td>
+          <td><%= row.Initials %></td>
+          <td><%= row.Sex %></td>
+          <td><%= row.DOB %></td>
+          <td><%= row.Address %></td>
+          <td><%= row.PostCode %></td>
+          <td><%= row.Admission %></td>
+          <td><%= row.WardID %></td>
+          <td><%= row.NextOfKin %></td>
+          <!-- Add more table cells for your data -->
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <p class="text-center text-muted">&copy; Copyright 2020 The Awesome People</p>
+</body>
+</html>

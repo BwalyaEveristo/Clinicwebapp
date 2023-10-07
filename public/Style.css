@@ -1,0 +1,139 @@
+#title{
+    background-color: grey;
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+    color: #3d1b1b;
+    padding-bottom: 20px;
+}
+.Appbar {
+    background-color: #333;
+    overflow: hidden;
+}
+.Appbar a {
+    float: left;
+    color: #f2f2f2;
+    text-align:center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17;
+}
+
+.bg-img{
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: -1;
+}
+
+.top-text {
+    position: absolute;
+    top: 100px; /* Position it below the app bar (50px + 50px) */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    text-align: center;
+    color: black;
+    font-family: 'Tangerine', cursive;
+}
+.Middel{
+    /* Style the submit button 
+         padding-top: 20;
+    padding-left: 400;
+    padding-top: 25;
+    
+    
+    */
+   
+    text-align: center;
+}
+
+/* 
+body{
+    background-color: white;
+    text-align: left;
+    font-family: 'Merriweather', serif;
+}
+
+*/
+
+/* Style the submit button */
+input[type="submit"] {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hover effect */
+input[type="submit"]:hover {
+    background-color: #2980b9;
+}
+.Ward{
+    text-align: left;
+
+}
+
+/* You can add more styles to customize the button further */
+.fixed-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* Remove background color */
+    color: white; /* Customize text color */
+    text-align: center;
+    padding: 10px; /* Add padding for better appearance */
+    margin-top: 10px; /* Add margin at the top */
+    border: none; /* Remove any borders */
+    color: #000;
+}
+
+.Nurse_In_Charge {
+    text-align: center;
+    text-decoration: dotted;
+   
+}
+
+.Nurse_In_Charge table {
+    margin: 0 auto;
+}
+
+.Nurse_In_Charge h4 {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.Nurse_In_Charge a {
+    color: white; /* Customize link color */
+    text-decoration: none; /* Remove underlines from links */
+    display: block; /* Make links block-level for better spacing */
+    margin: 5px 0; /* Add margin between links */
+    color: #000;
+}
+
+
+hr{
+    margin-top: 200px;
+}
+
+form {
+    text-align: center; /* Center the form content horizontally */
+    padding: 20px; /* Add some spacing around the form */
+}
+
+
+
+table{
+    border: 1;
+    align-items: "center";
+    width: 700px;
+    height: 200px;
+}
+

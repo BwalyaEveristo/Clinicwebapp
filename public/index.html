@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>WebApp Version 1</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <script src="response.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="Index.js"></script>
+
+</head>
+
+
+
+<body>
+
+    <img src="/public/Login_Image.jpg" class="bg-img bg-fluid" alt="Stethoscope" style="width:100%;">
+    
+    <div class="top-text">
+        <h1>WELCOME</h1>
+
+    </div>
+
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href=" ">CLINIC DATABASE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Home">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Databases">DATABASE</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="padding-top: 9%; color: black;">
+        <!--
+              <form action="">
+            <h2>Select a Nurse in Charge</h2>
+            <select name="Nurse">
+                <option value="Sister_Murphy" action="response.js" method="POST" href="Sister Murphy.html">Sister Murphy
+                </option>
+                <option value="Sister_Sarah">Sister Sarah</option>
+                <option value="Sister_Sammy">Sister Sammy</option>
+                <option value="Sister_Sri_Lanka">Sister Sri Lanka</option>
+                <option value="Sister_Tamil">Sister Tamil</option>
+                <option value="Sister_Zoning">Sister Zoning</option>
+                <option value="Sister_Yougest">Sister Yougest</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="Ward">
+        <form action="">
+            <p>SELECT WARD</p>
+            <select name="Ward">
+                <option value="Ward-01">W1</option>
+                <option value="Ward-02">W2</option>
+                <option value="Ward-03">W3</option>
+                <option value="Ward-04">W4</option>
+                <option value="Ward-05">W5</option>
+                <option value="Ward-06">W6</option>
+                <option value="Ward-07">W7</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="Text-form">
+
+    </div>
+
+    -->
+   
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form name="loginForm" method="POST" action="/process-form" onsubmit="return validateForm()">
+              <div class="mb-3">
+                <label for="idNumber" class="form-label">ID Number</label>
+                <input type="text" class="form-control" id="idNumber" name="idNumber" placeholder="Enter your ID number" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+              </div>
+              <button id="Login_button" type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <a id="SignUp" href="Pages/Signup.html" style="color: black;" target="_blank">Register</a>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        validateForm()
+       window.location.href = "dashboard.html"; // Replace with the actual URL of your dashboard page
+        return false; // Prevent the form from submitting through its default action
+      </script>
+      
+      
+
+
+
+    <!--
+
+
+
+        <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10">
+                <form method="POST" action="/Login Page/Login.html">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">ID NUMBER</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter your Nurse ID Number">
+                        <div id="emailHelp" class="form-text">Do not share your ID and we would never ask for your ID.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me to log in!</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    -->
+    
+    <p class="text-center text-muted">&copy; Copyright 2020 The Awesome People</p>
+</body>
+
+</html>
